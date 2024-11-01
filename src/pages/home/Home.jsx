@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Profile from "../../assets/home.jpg"
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
@@ -8,21 +8,25 @@ import Typed from "typed.js"
 
 const Home = () => {
     const typedRef = useRef(null);
-    useEffect(()=>{
+    useEffect(() => {
         const options = {
-            strings:["Full Stack Developer", "Front-End Developer","Back-End Developer","Web Developer"],
-            typeSpeed:50,
-            backSpeed:50,
-            loop:true
+            strings: ["Full Stack Developer", "Front-End Developer", "Back-End Developer", "Web Developer"],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
         }
         const typed = new Typed(typedRef.current, options)
-        return ()=>{
+        return () => {
             typed.destroy()
         }
-    },[])
+    }, [])
+    const [imageLoaded, setImageLoaded] = useState(false)
+    function handleImageLoad() {
+        setImageLoaded(true)
+    }
     return (
         <section className='home section grid'>
-            <img src={Profile} alt='' className='home__img' />
+            <img src={Profile} alt='' className={`home__img ${imageLoaded ? 'loaded' : ''}`} onLoad={handleImageLoad} />
             <div className='home__content'>
                 <div className='home__data'>
                     <h1 className='home__title'>

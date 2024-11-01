@@ -13,6 +13,7 @@
     border-radius: 30px;
     box-shadow: 0 0 8px hsla(0, 0%, 0%, 0.3);
     z-index: 1;
+    visibility: hidden;
 }
 
 .home__data{
@@ -59,8 +60,9 @@
     transform: rotate(-15deg);
 }
 
-.home__img{
+.loaded{
     animation: slideRight 2s forwards;
+    visibility: visible;
 }
 
 .home__title{
