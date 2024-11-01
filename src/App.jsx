@@ -7,6 +7,7 @@ import Home from './pages/home/Home'
 import About from './pages/about/About'
 import Portfolio from './pages/portfolio/portfolio'
 import Contact from './pages/contact/Contact'
+import ScrollToTop from "./components/ScrollToTop"
 
 import Aos from "aos"
 import 'aos/dist/aos.css'
@@ -20,13 +21,14 @@ function App() {
   return (
     <>
       <HashRouter>
+      <ScrollToTop/>
         <Navbar/>
         <Themes/>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path='/about' element={<About/>} />
-          <Route path='/contact' element={<Contact/>} />
-          <Route path="/portfolio" element={<Portfolio/>} />
+          <Route path='about' element={<About/>} />
+          <Route path='contact' element={<Contact/>} />
+          <Route path="portfolio" element={<Portfolio/>} />
         </Routes>
       </HashRouter>
     </>
